@@ -17,9 +17,7 @@ const GithubProjectCard = ({
   limit: number;
   googleAnalyticsId?: string;
 }) => {
-  if (!loading && githubProjects.length === 0) {
-    return;
-  }
+  // Always render; show placeholder if empty
 
   const renderSkeleton = () => {
     const array = [];
@@ -72,6 +70,15 @@ const GithubProjectCard = ({
   };
 
   const renderProjects = () => {
+    if (!loading && githubProjects.length === 0) {
+      return (
+        <div className="text-center mb-6">
+          <AiOutlineGithub className="mx-auto h-12 w-12 opacity-30" />
+          <p className="mt-1 text-sm opacity-50 text-base-content">Coming Soon..</p>
+        </div>
+      );
+    }
+
     return githubProjects.map((item, index) => (
       <a
         className="card shadow-md card-sm bg-base-100 cursor-pointer"

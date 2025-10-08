@@ -163,9 +163,7 @@ const BlogCard = ({
     ) : (
       <div className="text-center mb-6">
         <PiNewspaper className="mx-auto h-12 w-12 opacity-30" />
-        <p className="mt-1 text-sm opacity-50 text-base-content">
-          No recent post
-        </p>
+        <p className="mt-1 text-sm opacity-50 text-base-content">Coming Soon..</p>
       </div>
     );
   };

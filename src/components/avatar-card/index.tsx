@@ -70,11 +70,31 @@ const AvatarCard: React.FC<AvatarCardProps> = ({
               </span>
             )}
           </h5>
-          <div className="mt-3 text-base-content font-mono">
-            {loading || !profile
-              ? skeleton({ widthCls: 'w-48', heightCls: 'h-5' })
-              : profile.bio}
-          </div>
+          {loading || !profile ? (
+            <div className="mt-3">{skeleton({ widthCls: 'w-48', heightCls: 'h-5' })}</div>
+          ) : (
+            <div className="mt-3 text-base-content font-mono w-full">
+              {(() => {
+                const bioText = profile.bio || '';
+                const [headline, ...rest] = bioText.split('\n');
+                const body = rest.join('\n');
+                return (
+                  <div>
+                    {headline && (
+                      <div className="text-center font-semibold">
+                        {headline}
+                      </div>
+                    )}
+                    {body && (
+                      <div className="mt-2 text-left whitespace-pre-line">
+                        {body}
+                      </div>
+                    )}
+                  </div>
+                );
+              })()}
+            </div>
+          )}
         </div>
         {resumeFileUrl &&
           (loading ? (

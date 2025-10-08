@@ -32,14 +32,12 @@ const ExternalProjectCard = ({
                         className: 'mb-2 mx-auto',
                       })}
                     </h2>
-                    <div className="avatar w-full h-full">
-                      <div className="w-24 h-24 mask mask-squircle mx-auto">
-                        {skeleton({
-                          widthCls: 'w-full',
-                          heightCls: 'h-full',
-                          shape: '',
-                        })}
-                      </div>
+                    <div className="w-full">
+                      {skeleton({
+                        widthCls: 'w-full',
+                        heightCls: 'h-40',
+                        className: 'rounded-xl mx-auto',
+                      })}
                     </div>
                     <div className="mt-2">
                       {skeleton({
@@ -98,18 +96,17 @@ const ExternalProjectCard = ({
                     {item.title}
                   </h2>
                   {item.imageUrl && (
-                    <div className="avatar opacity-90">
-                      <div className="w-24 h-24 mask mask-squircle">
-                        <LazyImage
-                          src={item.imageUrl}
-                          alt={'thumbnail'}
-                          placeholder={skeleton({
-                            widthCls: 'w-full',
-                            heightCls: 'h-full',
-                            shape: '',
-                          })}
-                        />
-                      </div>
+                    <div className="opacity-90">
+                      <LazyImage
+                        src={item.imageUrl}
+                        alt={'thumbnail'}
+                        className="w-full h-40 object-contain rounded-xl bg-base-100"
+                        placeholder={skeleton({
+                          widthCls: 'w-full',
+                          heightCls: 'h-40',
+                          className: 'rounded-xl',
+                        })}
+                      />
                     </div>
                   )}
                   <p className="mt-2 text-base-content text-sm text-justify">

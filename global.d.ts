@@ -5,6 +5,23 @@ interface Github {
   username: string;
 }
 
+interface ProfileOverride {
+  /**
+   * Custom avatar URL (e.g., '/avatar.jpg')
+   */
+  avatarUrl?: string;
+
+  /**
+   * Display name override
+   */
+  name?: string;
+
+  /**
+   * Bio/description HTML or plain text
+   */
+  bio?: string;
+}
+
 interface GitHubProjects {
   /**
    * Display GitHub projects?
@@ -316,6 +333,11 @@ interface Config {
    * GitHub config
    */
   github: Github;
+
+  /**
+   * Optional profile overrides
+   */
+  profile?: ProfileOverride;
 
   /**
    * Vite's base url
